@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Email Verification</title>
+</head>
+<body style="font-family: Arial, sans-serif; background-color: #f9f9f9; padding: 20px;">
+  <div style="max-width: 600px; margin: auto; background-color: #ffffff; padding: 20px; border-radius: 8px;">
+    <h2>Hello, {{username}}!</h2>
+    <p>Thanks for signing up. Please verify your email address by clicking the link below:</p>
+    <p>
+      <a href="https://localhost:3000/verify-email?token={{token}}" style="color: #fff; background-color: #007bff; padding: 10px 20px; text-decoration: none; border-radius: 4px;">
+        Verify Email
+      </a>
+    </p>
+    <p>If you didn't request this, you can safely ignore this email.</p>
+  </div>
+</body>
+</html>
