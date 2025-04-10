@@ -1,4 +1,4 @@
-import { compareSync, hashSync } from "bcrypt"
+import { compareSync, hashSync } from "bcryptjs"
 import { Injectable } from "@nestjs/common"
 
 @Injectable()

@@ -13,6 +13,7 @@ model User {
   last_name   String   @db.VarChar(40)
   email       String   @unique @db.VarChar(40)
   password    String?  @db.VarChar(70)
+  isVerified  Boolean
   UserSession Session?
 }
 
@@ -27,7 +28,7 @@ model Session {
   type         SessionTypes
   refreshToken String?      @unique @db.Text
   lastLogin    DateTime?
-  createdAt    DateTime
+  createdAt    DateTime     @default(now())
   userId       String       @unique @db.VarChar(36)
   User         User         @relation(fields: [userId], references: [id], onDelete: Cascade)
 }

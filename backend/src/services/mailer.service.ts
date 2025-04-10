@@ -2,6 +2,7 @@ import * as mailer from "nodemailer"
 import { Injectable } from "@nestjs/common"
 import "dotenv/config"
 import { templateHandler } from "src/helpers/template-handler";
+import { IMailerData } from "src/interfaces/mailer-data";
 
 @Injectable()
 export class MailerService {
@@ -17,17 +18,17 @@ export class MailerService {
         } as unknown)
     }
 
-    async send(data: any) {
+    async send(data: IMailerData) {
         const transporter = this.create();
         const template = templateHandler({
             username: data.username,
             token: data.token,
-            template: data.template
+            templateName: data.templateName
         })
 
         await transporter.sendMail({
             from: "itbreaksfast@gmail.com",
-            to: data.email,
+            to: data.to,
             html: template
         })
     }
