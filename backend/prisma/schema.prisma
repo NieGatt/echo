@@ -27,7 +27,7 @@ model Session {
   id           Int          @id @unique @default(autoincrement())
   type         SessionTypes
   refreshToken String?      @unique @db.Text
-  lastLogin    DateTime?
+  lastLogout   DateTime?
   createdAt    DateTime     @default(now())
   userId       String       @unique @db.VarChar(36)
   User         User         @relation(fields: [userId], references: [id], onDelete: Cascade)
